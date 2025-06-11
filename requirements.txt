@@ -1,0 +1,4 @@
+colorama==0.4.6
+setuptools==58.2.0
+tqdm==4.67.1
+wheel==0.45.1
