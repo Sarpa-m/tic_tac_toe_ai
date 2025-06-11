@@ -15,7 +15,7 @@ class QLearningAgent:
         alpha: float = 0.5,
         gamma: float = 0.9,
         epsilon: float = 1.0,
-        epsilon_decay: float = 0.9999995,
+        epsilon_decay: float = 0.995,
         min_epsilon: float = 0.01,
         q_table_file: str = 'q_table.json'
     ):
