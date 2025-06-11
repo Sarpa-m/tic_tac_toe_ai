@@ -1,5 +1,6 @@
 import argparse
 from training_manager import TrainingManager
+from ui_tk.main import App as uiAPP
 
 
 def main():
@@ -33,9 +34,8 @@ def main():
             f"Epsilon final: {eps:.4f}"
         )
     else:
-        print(
-            "Modo de jogo ainda não implementado. Use --train para treinar."
-        )
+        app = uiAPP()
+        app.mainloop()
 
 
 if __name__ == '__main__':

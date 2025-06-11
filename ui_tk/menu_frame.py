@@ -14,12 +14,6 @@ class MenuFrame(tk.Frame):
         title = ttk.Label(self, text="Tic-Tac-Toe AI", font=("Helvetica", 24))
         title.pack(pady=40)
 
-        # Botão Treinar
-        btn_train = ttk.Button(
-            self, text="Treinar Agente",
-            command=self.controller.show_train
-        )
-        btn_train.pack(pady=10, ipadx=10, ipady=5)
 
         # Botão Jogar
         btn_play = ttk.Button(
