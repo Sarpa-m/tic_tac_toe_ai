@@ -72,7 +72,7 @@ class TrainingManager:
                         r = 1.0
                     elif winner == 'Draw':
                         stats['draws'] += 1
-                        r = 0.5
+                        r = 1.0
                     else:
                         stats['losses'] += 1
                         r = -1.0
@@ -92,10 +92,11 @@ class TrainingManager:
 
             # Salva histórico e Q-table ao final de cada episódio
             self._append_history_entry(ep, stats['wins'], stats['draws'], stats['losses'], self.agent.epsilon)
-            self.agent.save_q_table()
+            
 
             # Log periódico no console
             if ep % self.log_interval == 0 or ep == self.num_episodes:
+                self.agent.save_q_table()
                 tqdm.write(
                     f"{ep}/{self.num_episodes}: "
                     f"{stats['wins']} vitórias, {stats['draws']} empates, {stats['losses']} derrotas, ε={self.agent.epsilon:.4f}"
@@ -128,7 +129,7 @@ class TrainingManager:
                         tqdm.write(f"[ANOMALIA] Minimax perdeu no episódio {ep}\n{game}")
                     elif w == 'Draw':
                         stats['draws'] += 1
-                        r = 0.5
+                        r = 1.0
                     else: # Unreachable code if Minimax plays optimally
                         stats['losses'] += 1
                         r = -1.0
@@ -167,10 +168,11 @@ class TrainingManager:
 
             # Salva histórico e Q-table ao final de cada episódio
             self._append_history_entry(ep, stats['wins'], stats['draws'], stats['losses'], self.agent.epsilon)
-            self.agent.save_q_table()
+            
 
             # Log periódico no console
             if ep % self.log_interval == 0 or ep == self.num_episodes:
+                self.agent.save_q_table()
                 tqdm.write(
                     f"{ep}/{self.num_episodes}: "
                     f"{stats['wins']} vitórias, {stats['draws']} empates, {stats['losses']} derrotas, ε={self.agent.epsilon:.4f}"
